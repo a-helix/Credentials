@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Credentials;
-using System;
 
 
 namespace CredentialsTests
@@ -9,64 +8,23 @@ namespace CredentialsTests
     [TestClass]
     public class ParametersTest
     {
-        string test;
-        Parameters parameters = ConfigHandler.deserialize("positive.json");
+        Parameters etalon = new Parameters("127.0.0.1", "88", "test");
+        Parameters positiveTest = new Parameters("127.0.0.1", "88", "test");
+        Parameters negativeTest = new Parameters("192.168.0.1", "88", "test");
 
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Host is not specified")]
-        public void GetHostNegativeTest()
+        public void ParametersCOmparingPositiveTest()
         {
-            ConfigHandler.deserialize("negative.json");
+            Assert.IsTrue(etalon.Equals(positiveTest));
+            Assert.AreEqual(etalon.GetHashCode(), positiveTest.GetHashCode());
         }
 
         [TestMethod]
-        public void GetHostPositiveTest()
+        public void ParametersCOmparingNegativeTest()
         {
-            test = "127.0.0.1";
-            Assert.AreEqual(test, parameters.getHost());
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Port is not specified")]
-        public void GetPortNegativeTest()
-        {
-            ConfigHandler.deserialize("negative.json");
-        }
-
-        [TestMethod]
-        public void GetPortPositiveTest()
-        {
-            test = "88";
-            Assert.AreEqual(test, parameters.getPort());
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Description is not specified")]
-        public void GetDescriptionNegativeTest()
-        {
-            ConfigHandler.deserialize("negative.json");
-        }
-
-        [TestMethod]
-        public void GetDescriptionPositiveTest()
-        {
-            test = "test";
-            Assert.AreEqual(test, parameters.getDescription());
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Random is not specified")]
-        public void GeAdditionalParameterTest()
-        {
-            Assert.AreEqual(test, parameters.getAdditionalParameter("Random"));
-        }
-
-        [TestMethod]
-        public void GetAdditionalParameterPositiveTest()
-        {
-            test = "2.0";
-            Assert.AreEqual(test, parameters.getAdditionalParameter("version"));
+            Assert.IsFalse(etalon.Equals(negativeTest));
+            Assert.AreNotEqual(etalon.GetHashCode(), negativeTest.GetHashCode());
         }
     }
 }

@@ -1,6 +1,7 @@
 *Credentials.sln
 Credentials/bin/
 Credentials/obj/
+Credentials/Properties/
 CredentialsTests/bin/
 CredentialsTests/obj/
 TestResults

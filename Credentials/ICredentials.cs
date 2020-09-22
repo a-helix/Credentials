@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Credentials
+﻿namespace Credentials
 {
-    interface ICredentials
+    public interface ICredentials
     {
-        string getPort();
-        string getHost();
-        string getDescription();
+        public T deserialize<T>(string jsonPath);
     }
 }
