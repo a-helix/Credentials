@@ -1,11 +1,8 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Credentials;
-
+using NUnit.Framework;
 
 namespace CredentialsTests
 
 {
-    [TestClass]
     public class ParametersTest
     {
         Parameters etalon = new Parameters("127.0.0.1", "88", "test");
@@ -13,14 +10,14 @@ namespace CredentialsTests
         Parameters negativeTest = new Parameters("192.168.0.1", "88", "test");
 
 
-        [TestMethod]
+        [Test]
         public void ParametersCOmparingPositiveTest()
         {
             Assert.IsTrue(etalon.Equals(positiveTest));
             Assert.AreEqual(etalon.GetHashCode(), positiveTest.GetHashCode());
         }
 
-        [TestMethod]
+        [Test]
         public void ParametersCOmparingNegativeTest()
         {
             Assert.IsFalse(etalon.Equals(negativeTest));

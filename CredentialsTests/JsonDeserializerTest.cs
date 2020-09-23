@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Credentials;
 using System;
 
 namespace CredentialsTests
 
 {
-    [TestClass]
     public class JsonDeserializerTest
     {
         static JsonDeserializer deserializer = new JsonDeserializer();
@@ -13,7 +12,7 @@ namespace CredentialsTests
         Parameters test;
         Parameters notExhist;
 
-        [TestMethod]
+        [Test]
         public void deserializePositiveTest()
         {
             test = new Parameters("127.0.0.1", "88", "test");
@@ -22,7 +21,7 @@ namespace CredentialsTests
             Assert.AreEqual(etalon.GetHashCode(), test.GetHashCode());
         }
 
-        [TestMethod]
+        [Test]
         public void deserializeNegativeTest()
         {
             test = new Parameters("192.168.0.1", "88", "test");
@@ -30,11 +29,11 @@ namespace CredentialsTests
             Assert.AreNotEqual(etalon.GetHashCode(), test.GetHashCode());
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(Exception), "not_exhist.json file doesn't exhist")]
+        [Test]
         public void deserializeFileNotFoundTest()
         {
-            notExhist = deserializer.deserialize<Parameters>("not_exhist.json");
+            Assert.Throws<Exception>(() => notExhist = deserializer.deserialize<Parameters>("not_exhist.json"), 
+                "not_exhist.json file doesn't exhist");
         }
     }
 }

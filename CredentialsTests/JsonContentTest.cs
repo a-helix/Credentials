@@ -1,32 +1,33 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Credentials;
 using System;
 
 namespace CredentialsTests
 {
-    [TestClass]
     public class JsonContentTest
     {
         JsonContent test = new JsonContent("testJsonContent.json");
 
-        [TestMethod]
+        [Test]
         public void selectedParameterPositiveTest()
         {
             Assert.AreEqual(test.selectedParameter("family_name"), "Escobar");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(Exception), "witnesses parameter doesn't exhist")]
+        [Test]
         public void selectedParameterNegativeTest()
         {
-            object not_exhist = test.selectedParameter("witnesses");
+            object not_exhist;
+            Assert.Throws<Exception>(() => not_exhist = test.selectedParameter("witnesses"),
+               "witnesses parameter doesn't exhist");
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(Exception), "not_exhist.json file doesn't exhist")]
+        [Test]
         public void selectedParameterDoesNotExhistTest()
         {
-            JsonContent not_exhist = new JsonContent("not_exhist.json");
+            JsonContent not_exhist;
+            Assert.Throws<Exception>(() => not_exhist = new JsonContent("not_exhist.json"), 
+                "not_exhist.json file doesn't exhist");
         }
     }
 }
