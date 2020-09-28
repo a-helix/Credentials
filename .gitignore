@@ -1,7 +1,5 @@
-Credentials/bin/
-Credentials/obj/
-Credentials/Properties/
-CredentialsTests/bin/
-CredentialsTests/obj/
+bin/
+obj/
+Properties/
 TestResults
 .vs/

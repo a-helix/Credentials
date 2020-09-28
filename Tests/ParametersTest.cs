@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace CredentialsTests
+namespace Credentials.Tests
 
 {
     public class ParametersTest

@@ -5,20 +5,20 @@ using System.IO;
 
 namespace Credentials
 {
-    public class JsonContent
+    public class JsonFileContent : IContent
     {
         Dictionary<string, object> dict;
 
-        public JsonContent(string jsonPath)
+        public JsonFileContent(string jsonPath)
         {
             if (!File.Exists(jsonPath))
                 throw new Exception(String.Format("{0} file doesn't exhist", jsonPath));
-            string json;
+            string jsonContent;
             using (StreamReader r = new StreamReader(jsonPath))
             {
-                json = r.ReadToEnd();
+                jsonContent = r.ReadToEnd();
             }
-            dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+            dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonContent);
         }
 
         public object selectedParameter(string parameter)

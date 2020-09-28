@@ -1,4 +1,4 @@
-﻿namespace CredentialsTests
+﻿namespace Credentials.Tests
 {
     public class Parameters
     {

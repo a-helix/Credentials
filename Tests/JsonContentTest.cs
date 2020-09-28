@@ -2,11 +2,11 @@
 using Credentials;
 using System;
 
-namespace CredentialsTests
+namespace Credentials.Tests
 {
     public class JsonContentTest
     {
-        JsonContent test = new JsonContent("testJsonContent.json");
+        JsonFileContent test = new JsonFileContent("testJsonContent.json");
 
         [Test]
         public void selectedParameterPositiveTest()
@@ -25,8 +25,8 @@ namespace CredentialsTests
         [Test]
         public void selectedParameterDoesNotExhistTest()
         {
-            JsonContent not_exhist;
-            Assert.Throws<Exception>(() => not_exhist = new JsonContent("not_exhist.json"), 
+            JsonFileContent not_exhist;
+            Assert.Throws<Exception>(() => not_exhist = new JsonFileContent("not_exhist.json"), 
                 "not_exhist.json file doesn't exhist");
         }
     }

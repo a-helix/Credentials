@@ -2,7 +2,7 @@
 using Credentials;
 using System;
 
-namespace CredentialsTests
+namespace Credentials.Tests
 
 {
     public class JsonDeserializerTest
