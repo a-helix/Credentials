@@ -1,14 +1,14 @@
-﻿using NUnit.Framework;
-using Credentials;
-using System;
+﻿using System;
+using System.IO;
+using NUnit.Framework;
 
 namespace Credentials.Tests
-
 {
     public class JsonDeserializerTest
     {
         static JsonDeserializer deserializer = new JsonDeserializer();
-        Parameters etalon = deserializer.deserialize<Parameters>("testParameters.json");
+        static string path = Path.Join("Tests", "Configs", "ParametersTest.json");
+        Parameters etalon = deserializer.deserialize<Parameters>(path);
         Parameters test;
         Parameters notExhist;
 
