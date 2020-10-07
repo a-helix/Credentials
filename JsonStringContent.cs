@@ -22,5 +22,14 @@ namespace Credentials
             }
             throw new Exception(String.Format("{0} parameter doesn't exhist.", parameter));
         }
+
+        public bool containsParameter(string parameter)
+        {
+            if (dict.ContainsKey(parameter))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
