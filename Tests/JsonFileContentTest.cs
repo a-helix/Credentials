@@ -6,25 +6,25 @@ namespace Credentials.Tests
 {
     public class JsonFileContentTest
     {
-        static string path = Path.Join("Tests", "Configs", "JsonFileContentTest.json");
+        static string path = Path.Join(Directory.GetCurrentDirectory(), "Tests", "Configs", "JsonFileContentTest.json");
         JsonFileContent test = new JsonFileContent(path);
 
         [Test]
-        public void selectedParameterPositiveTest()
+        public void ParameterPositiveTest()
         {
-            Assert.AreEqual(test.selectedParameter("family_name"), "Escobar");
+            Assert.AreEqual(test.Parameter("family_name"), "Escobar");
         }
 
         [Test]
-        public void selectedParameterNegativeTest()
+        public void ParameterNegativeTest()
         {
             object not_exhist;
-            Assert.Throws<Exception>(() => not_exhist = test.selectedParameter("witnesses"),
+            Assert.Throws<Exception>(() => not_exhist = test.Parameter("witnesses"),
                "witnesses parameter doesn't exhist");
         }
 
         [Test]
-        public void selectedParameterDoesNotExhistTest()
+        public void ParameterDoesNotExhistTest()
         {
             JsonFileContent not_exhist;
             Assert.Throws<Exception>(() => not_exhist = new JsonFileContent("not_exhist.json"), 

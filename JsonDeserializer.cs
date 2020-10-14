@@ -6,7 +6,7 @@ namespace Credentials
 {
     public class JsonDeserializer : ICredentials
     {
-        public T deserialize<T>(string jsonPath)
+        public T Deserialize<T>(string jsonPath)
         {
             if (!File.Exists(jsonPath))
                 throw new Exception(String.Format("{0} file doesn't exhist", jsonPath));

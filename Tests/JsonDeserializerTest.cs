@@ -7,8 +7,8 @@ namespace Credentials.Tests
     public class JsonDeserializerTest
     {
         static JsonDeserializer deserializer = new JsonDeserializer();
-        static string path = Path.Join("Tests", "Configs", "ParametersTest.json");
-        Parameters etalon = deserializer.deserialize<Parameters>(path);
+        static string path = Path.Join(Directory.GetCurrentDirectory(), "Tests", "Configs", "ParametersTest.json");
+        Parameters etalon = deserializer.Deserialize<Parameters>(path);
         Parameters test;
         Parameters notExhist;
 
@@ -32,7 +32,7 @@ namespace Credentials.Tests
         [Test]
         public void deserializeFileNotFoundTest()
         {
-            Assert.Throws<Exception>(() => notExhist = deserializer.deserialize<Parameters>("not_exhist.json"), 
+            Assert.Throws<Exception>(() => notExhist = deserializer.Deserialize<Parameters>("not_exhist.json"), 
                 "not_exhist.json file doesn't exhist");
         }
     }

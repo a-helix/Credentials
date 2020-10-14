@@ -2,6 +2,7 @@
 {
     public interface IContent
     {
-        public object selectedParameter(string parameter);
+        public object Parameter(string parameter);
+        public bool Contains(string parameter);
     }
 }

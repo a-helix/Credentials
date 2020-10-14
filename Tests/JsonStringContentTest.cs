@@ -12,21 +12,21 @@ namespace Credentials.Tests
         JsonStringContent test = new JsonStringContent(json);
 
         [Test]
-        public void selectedParameterPositiveTest()
+        public void ParameterPositiveTest()
         {
-            Assert.AreEqual(test.selectedParameter("family_name"), "Escobar");
+            Assert.AreEqual(test.Parameter("family_name"), "Escobar");
         }
 
         [Test]
-        public void selectedParameterNegativeTest()
+        public void ParameterNegativeTest()
         {
             object not_exhist;
-            Assert.Throws<Exception>(() => not_exhist = test.selectedParameter("witnesses"),
+            Assert.Throws<Exception>(() => not_exhist = test.Parameter("witnesses"),
                "witnesses parameter doesn't exhist");
         }
 
         [Test]
-        public void selectedParameterInvalidStringTest()
+        public void ParameterInvalidStringTest()
         {
             string wrongString = "Invalid string for JsonStringContent.";
             JsonStringContent invalid;
