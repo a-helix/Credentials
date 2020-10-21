@@ -39,6 +39,5 @@ namespace Credentials
             }
             return false;
         }
-
     }
 }
