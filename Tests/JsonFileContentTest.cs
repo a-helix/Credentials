@@ -10,24 +10,16 @@ namespace Credentials.Tests
         JsonFileContent test = new JsonFileContent(path);
 
         [Test]
-        public void ParameterPositiveTest()
+        public void ParameterTest()
         {
             Assert.AreEqual(test.Parameter("family_name"), "Escobar");
-        }
 
-        [Test]
-        public void ParameterNegativeTest()
-        {
-            object not_exhist;
-            Assert.Throws<Exception>(() => not_exhist = test.Parameter("witnesses"),
+            object not_real;
+            Assert.Throws<Exception>(() => not_real = test.Parameter("witnesses"),
                "witnesses parameter doesn't exhist");
-        }
 
-        [Test]
-        public void ParameterDoesNotExhistTest()
-        {
             JsonFileContent not_exhist;
-            Assert.Throws<Exception>(() => not_exhist = new JsonFileContent("not_exhist.json"), 
+            Assert.Throws<Exception>(() => not_exhist = new JsonFileContent("not_exhist.json"),
                 "not_exhist.json file doesn't exhist");
         }
     }
