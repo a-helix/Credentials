@@ -12,12 +12,12 @@ namespace Credentials.Tests
         JsonStringContent test = new JsonStringContent(json);
 
         [Test]
-        public void ParameterTest()
+        public void ValueTest()
         {
-            Assert.AreEqual(test.Parameter("family_name"), "Escobar");
+            Assert.AreEqual(test.Value("family_name"), "Escobar");
 
             object not_exhist;
-            Assert.Throws<Exception>(() => not_exhist = test.Parameter("witnesses"),
+            Assert.Throws<Exception>(() => not_exhist = test.Value("witnesses"),
                "witnesses parameter doesn't exhist");
 
             string wrongString = "Invalid string for JsonStringContent.";

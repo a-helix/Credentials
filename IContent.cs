@@ -2,7 +2,7 @@
 {
     public interface IContent
     {
-        public object Parameter(string parameter);
+        public object Value(string parameter);
         public bool Contains(string parameter);
     }
 }

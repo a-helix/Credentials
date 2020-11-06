@@ -21,7 +21,7 @@ namespace Credentials
             dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(jsonContent);
         }
 
-        public object Parameter(string parameter)
+        public object Value(string parameter)
         {
             
             if (dict.ContainsKey(parameter))
