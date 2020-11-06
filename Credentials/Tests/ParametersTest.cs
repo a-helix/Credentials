@@ -11,15 +11,11 @@ namespace Credentials.Tests
 
 
         [Test]
-        public void ParametersCOmparingPositiveTest()
+        public void ParametersCOmparingTest()
         {
             Assert.IsTrue(etalon.Equals(positiveTest));
             Assert.AreEqual(etalon.GetHashCode(), positiveTest.GetHashCode());
-        }
 
-        [Test]
-        public void ParametersCOmparingNegativeTest()
-        {
             Assert.IsFalse(etalon.Equals(negativeTest));
             Assert.AreNotEqual(etalon.GetHashCode(), negativeTest.GetHashCode());
         }

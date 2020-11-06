@@ -13,17 +13,17 @@ namespace Credentials
             dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
         }
 
-        public object selectedParameter(string parameter)
+        public object Value(string parameter)
         {
 
             if (dict.ContainsKey(parameter))
             {
                 return dict[parameter];
             }
-            throw new Exception(String.Format("{0} parameter doesn't exhist.", parameter));
+            throw new Exception($"{parameter} parameter doesn't exhist.");
         }
 
-        public bool containsParameter(string parameter)
+        public bool Contains(string parameter)
         {
             if (dict.ContainsKey(parameter))
             {

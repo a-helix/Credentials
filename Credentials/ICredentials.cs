@@ -2,6 +2,6 @@
 {
     public interface ICredentials
     {
-        public T deserialize<T>(string jsonPath);
+        public T Deserialize<T>(string jsonPath);
     }
 }
